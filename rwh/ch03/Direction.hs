@@ -7,4 +7,12 @@ data Direction = DLeft
 type Point = (Int, Int) 
 
 getTurn :: Point -> Point -> Point -> Direction
-getTurn a b c   
+getTurn (ax, ay) (bx, by) (cx, cy) = if cx < bx 
+                                     then DLeft
+                                     else if ax == bx && bx == cx 
+                                          then DStraight
+                                          else DRight
+
+getListTurn :: [Point] -> [Direction]
+getListTurn (a:b:c:xs) = ( getTurn a b c ) : ( getListTurn xs )
+getListTurn _          = []
