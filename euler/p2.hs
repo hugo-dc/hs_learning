@@ -12,4 +12,4 @@ fibo a b xs
 
 result = sum $ [x | x <- fibo 1 2 [1,2], even x]
 
-
+main = putStrLn $ show result
