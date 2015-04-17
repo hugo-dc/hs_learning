@@ -10,7 +10,7 @@ result x = head [a | a <- [x..], a `step` x ]
               getMods z 0   = []
               getMods z top = mod z top : getMods z ( top - 1 )
 
-main = putStrLn $ show result 20
+main = putStrLn $ show ( result 20 )
 
 -- Found this amazing answer in Haskell:
 -- foldl (lcm) 1 [1..20]
